@@ -1,0 +1,31 @@
+<script setup>
+</script>
+
+<template>
+    <nav className="bg-gray-800 text-gray-300 p-4">
+      <div className="container mx-auto flex justify-between items-center">
+        <div className="flex items-center space-x-4">
+          <span className="text-xl pr-2 font-bold text-gray-100">
+            <i class="pi pi-bolt"></i>
+            Gakshuu Cards
+          </span>
+          <a href="/" className="hover:text-gray-100 flex items-center">
+            Home
+          </a>
+          <a href="/Decks" className="hover:text-gray-100 flex items-center">
+            Decks
+          </a>
+          <a href="/AddDeck" className="hover:text-gray-100 flex items-center">
+            Add Deck
+          </a>
+        </div>
+        <div>
+        <a href="/Login" className="hover:text-gray-100 flex items-center">
+            Login
+          </a>
+        </div>
+        <button className="md:hidden">
+        </button>
+      </div>
+    </nav>
+</template>
