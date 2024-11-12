@@ -69,9 +69,9 @@ const handleFinish = () => {
     </div>
 
     <div class="flex justify-center space-x-4">
-      <button v-if="!isFirstCard" @click="handlePrevious" class="px-6 py-2 bg-blue-600 rounded">Previous</button>
-      <button v-if="!isLastCard" @click="handleNext" class="px-6 py-2 bg-blue-600 rounded">Next</button>
-      <button v-else @click="handleFinish" class="px-6 py-2 bg-green-600 rounded">Finish</button>
+      <button v-if="!isFirstCard" @click="handlePrevious" class="px-6 py-2 bg-blue-600 rounded hover:bg-blue-700">Previous</button>
+      <button v-if="!isLastCard" @click="handleNext" class="px-6 py-2 bg-blue-600 rounded hover:bg-blue-700">Next</button>
+      <button v-else @click="handleFinish" class="px-6 py-2 bg-green-600 rounded hover:bg-green-800">Finish</button>
     </div>
   </div>
 </template>

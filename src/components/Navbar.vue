@@ -1,4 +1,8 @@
 <script setup>
+import store from '@/store';
+import { computed } from 'vue';
+
+const user = computed(()=> store.state.user);
 </script>
 
 <template>
@@ -19,13 +23,12 @@
             Add Deck
           </a>
         </div>
-        <div>
-        <a href="/Login" className="hover:text-gray-100 flex items-center">
+          <a v-if="user" href="/Account" className="hover:text-gray-100 flex items-center">
+            Account
+          </a>
+          <a v-if="!user" href="/Auth" className="hover:text-gray-100 flex items-center">
             Login
           </a>
-        </div>
-        <button className="md:hidden">
-        </button>
       </div>
     </nav>
 </template>

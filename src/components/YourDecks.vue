@@ -9,7 +9,7 @@
     </div>
     <div v-if="hasMoreDecks" class="flex justify-end mt-4">
       <a href="/Decks">
-      <button class="px-4 py-2 bg-blue-600 text-white rounded-md flex items-center">
+      <button class="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 rounded-md flex items-center">
         More
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
