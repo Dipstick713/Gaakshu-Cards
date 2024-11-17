@@ -1,16 +1,27 @@
 <script setup>
-import { ref, reactive, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { useRouter, useRoute } from 'vue-router';
+import { supabase } from '@/supabase';
 
 const currentIndex = ref(0)
+const router = useRouter();
 const isFlipped = ref(false)
+const route = useRoute();
 
-const cards = reactive([
-  { front: "What is the capital of France?", back: "Paris" },
-  { front: "What is the largest planet in our solar system?", back: "Jupiter" },
-  { front: "Who wrote 'Romeo and Juliet'?", back: "William Shakespeare" },
-])
+const deckId = route.params.id;
+const cards = ref([])
 
-const currentCard = computed(() => cards[currentIndex.value])
+onMounted(async () => {
+  const { data, error } = await supabase
+    .from('cards')
+    .select('question, answer')
+    .eq('deck_id', deckId);
+    
+  cards.value=data;
+  }
+)
+
+const currentCard = computed(() => cards.value[currentIndex.value])
 
 const handleFlip = () => {
   isFlipped.value = !isFlipped.value
@@ -20,15 +31,15 @@ const changeCard = (direction) => {
   if (isFlipped.value) {
     isFlipped.value = false
     setTimeout(() => {
-      currentIndex.value = (currentIndex.value + direction + cards.length) % cards.length
+      currentIndex.value = (currentIndex.value + direction + cards.value.length) % cards.value.length
     }, 300)
   } else {
-    currentIndex.value = (currentIndex.value + direction + cards.length) % cards.length
+    currentIndex.value = (currentIndex.value + direction + cards.value.length) % cards.value.length
   }
 }
 
 const isLastCard = computed(() => {
-  return currentIndex.value === cards.length - 1;
+  return currentIndex.value === cards.value.length - 1;
 });
 
 const isFirstCard = computed(() => {
@@ -39,8 +50,7 @@ const handlePrevious = () => changeCard(-1)
 const handleNext = () => changeCard(1)
 
 const handleFinish = () => {
-  // Implement finish logic here
-  alert("Congratulations! You've completed the flashcard deck.");
+  router.push('/Decks');
 };
 </script>
 
@@ -57,12 +67,12 @@ const handleFinish = () => {
       >
         <div class="flashcard-face flashcard-front bg-navy">
           <div class="flex items-center justify-center h-full p-8 text-center text-2xl">
-            {{ currentCard.front }}
+            {{ currentCard?.question }}
           </div>
         </div>
         <div class="flashcard-face flashcard-back bg-dark-green">
           <div class="flex items-center justify-center h-full p-8 text-center text-2xl">
-            {{ currentCard.back }}
+            {{ currentCard?.answer }}
           </div>
         </div>
       </div>

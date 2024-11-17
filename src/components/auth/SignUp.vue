@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink } from 'vue-router';
 import { supabase } from '@/supabase';
 import { ref, reactive } from 'vue';
 import { useRouter } from 'vue-router';
@@ -87,7 +88,6 @@ import { useRouter } from 'vue-router';
           >
             Create Account
           </button>
-          <p class="text-gray-300">Already have an account?<a href="/Auth" class="text-blue-500 px-2">Login</a></p>
         </form>
         <!-- Error Message -->
         <div v-if="errorMessage" class="mt-1 text-red-500 text-sm text-center">

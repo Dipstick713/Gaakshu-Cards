@@ -1,7 +1,7 @@
 <script setup>
 import store from '@/store';
 import { computed } from 'vue';
-
+import { RouterLink } from 'vue-router';
 const user = computed(()=> store.state.user);
 </script>
 
@@ -13,22 +13,22 @@ const user = computed(()=> store.state.user);
             <i class="pi pi-bolt"></i>
             Gakshuu Cards
           </span>
-          <a href="/" className="hover:text-gray-100 flex items-center">
+          <RouterLink to="/" className="hover:text-gray-100 flex items-center">
             Home
-          </a>
-          <a href="/Decks" className="hover:text-gray-100 flex items-center">
+          </RouterLink>
+          <RouterLink to="/Decks" className="hover:text-gray-100 flex items-center">
             Decks
-          </a>
-          <a href="/AddDeck" className="hover:text-gray-100 flex items-center">
-            Add Deck
-          </a>
+          </RouterLink>
+          <RouterLink to="/ManageDeck" className="hover:text-gray-100 flex items-center">
+            Manage Deck
+          </RouterLink>
         </div>
-          <a v-if="user" href="/Account" className="hover:text-gray-100 flex items-center">
-            Account
-          </a>
-          <a v-if="!user" href="/Auth" className="hover:text-gray-100 flex items-center">
+          <RouterLink v-if="user" to="/Account" className="hover:text-gray-100 flex items-center">
+            <i class="pi pi-user"> Account</i>
+          </RouterLink>
+          <RouterLink v-if="!user" to="/Auth" className="hover:text-gray-100 flex items-center">
             Login
-          </a>
+          </RouterLink>
       </div>
     </nav>
 </template>

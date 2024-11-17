@@ -21,7 +21,7 @@ if(user)
 const emit = defineEmits(['selectDeck']);
 
 const handleDeckSelect = (deckId) => {
-  router.push(`/Study/${deckId}`);
+  router.push(`/Delete/${deckId}`);
 };
 </script>
 
@@ -31,7 +31,7 @@ const handleDeckSelect = (deckId) => {
       Your Flashcard Decks
     </h2>
     <p class="text-sm text-gray-400 mb-6">
-      Select a deck to start studying
+      Select a deck to start edit
     </p>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       <button
