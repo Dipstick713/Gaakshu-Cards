@@ -1,4 +1,5 @@
 <script setup>
+import Navbar from './Navbar.vue';
 import { ref,onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { supabase } from '@/supabase';
@@ -26,6 +27,7 @@ const handleDeckSelect = (deckId) => {
 </script>
 
 <template>
+<Navbar/>
   <div class="min-h-screen bg-gray-900 p-8">
     <h2 class="text-2xl font-bold text-white mb-2">
       Delete a Deck
