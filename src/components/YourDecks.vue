@@ -21,7 +21,7 @@ const hasMoreDecks = computed(() => decks.value.length > 4);
 
 <template>
   <div class="bg-gray-900 text-white">
-    <h2 class="text-2xl font-bold mb-4">Your Decks</h2>
+    <h2 v-if="decks.length > 0" class="text-2xl font-bold mb-4">Your Decks</h2>
     <div class="flex flex-wrap ">
       <div v-for="deck in displayedDecks" :key="deck.id" class="w-64 h-40 m-2 bg-gray-800 rounded-lg p-4 flex flex-col items-center justify-center hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 transition-colors duration-300">
         <h3 class="text-lg font-semibold">{{ deck.deck_name }}</h3>
