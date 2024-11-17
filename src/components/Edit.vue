@@ -30,10 +30,10 @@ const handleDeckSelect = (deckId) => {
   <Navbar/>
   <div class="min-h-screen bg-gray-900 p-8">
     <h2 class="text-2xl font-bold text-white mb-2">
-      Your Flashcard Decks
+      Edit Your Decks
     </h2>
     <p class="text-sm text-gray-400 mb-6">
-      Select a deck to start edit
+      Select a deck to edit
     </p>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       <button
