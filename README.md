@@ -1,6 +1,6 @@
 # Gakshuu Cards
 
-A Vue.js flashcard application for creating and studying digital flashcards.
+A Vue.js flashcard application for creating and studying digital flashcards for quick revision.
 
 ## Features
 
